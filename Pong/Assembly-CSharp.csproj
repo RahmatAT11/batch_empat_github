@@ -61,7 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BallControl.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\PlayerControl.cs" />
+    <Compile Include="Assets\SideWall.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Dilo Game Academy/batch_empat_github/Pong/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
