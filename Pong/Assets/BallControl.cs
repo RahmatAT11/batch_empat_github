@@ -11,6 +11,9 @@ public class BallControl : MonoBehaviour
     public float xInitialForce;
     public float yInitialForce;
 
+    // Titik asal lintasan bola saat ini
+    private Vector2 trajectoryOrigin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,8 @@ public class BallControl : MonoBehaviour
 
         // Mulai game
         RestartGame();
+
+        trajectoryOrigin = transform.position;
     }
 
     void ResetBall()
@@ -57,5 +62,17 @@ public class BallControl : MonoBehaviour
 
         // Setelah 2 detik, berikan gaya ke bola
         Invoke("PushBall", 2);
+    }
+
+    // Ketika bola beranjak dari sebuah tumbukan, rekam titik tumbukan tersebut
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        trajectoryOrigin = transform.position;
+    }
+
+    // Untuk mengakses informasi titik asal lintasan
+    public Vector2 TrajectoryOrigin
+    {
+        get { return trajectoryOrigin; }
     }
 }

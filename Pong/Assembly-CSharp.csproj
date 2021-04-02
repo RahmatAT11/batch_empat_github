@@ -62,8 +62,11 @@
   <ItemGroup>
     <Compile Include="Assets\BallControl.cs" />
     <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\KunalTandon\DottedLine\Scripts\DottedLine.cs" />
+    <Compile Include="Assets\KunalTandon\DottedLine\Scripts\DottedLineDemo.cs" />
     <Compile Include="Assets\PlayerControl.cs" />
     <Compile Include="Assets\SideWall.cs" />
+    <Compile Include="Assets\Trajectory.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Dilo Game Academy/batch_empat_github/Pong/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
