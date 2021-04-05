@@ -29,8 +29,7 @@ public class Trajectory : MonoBehaviour
         Vector2 offsetHitPoint = new Vector2();
 
         // Tentukan titik tumbukan dengan deteksi pergerakan lingkaran
-        RaycastHit2D[] circleCastHit2DArray = Physics2D.CircleCastAll(ballRigidbody.position, ballCollider.radius,
-                                              ballRigidbody.velocity.normalized);
+        RaycastHit2D[] circleCastHit2DArray = Physics2D.CircleCastAll(ballRigidbody.position, ballCollider.radius, ballRigidbody.velocity.normalized);
 
         // Untuk setiap titik tumbukan, ...
         foreach (RaycastHit2D circleCastHit2D in circleCastHit2DArray)
@@ -77,20 +76,20 @@ public class Trajectory : MonoBehaviour
 
                         // Untuk menggambar bola "bayangan" di prediksi titik tumbukan
                         drawBallAtCollision = true;
-
-                        // Jika true, ...
-                        if (drawBallAtCollision)
-                        {
-                            // Gambar bola "bayangan" di prediksi titik tumbukan
-                            ballAtCollision.transform.position = offsetHitPoint;
-                            ballAtCollision.SetActive(true);
-                        }
-                        else
-                        {
-                            // Sembunyikan bola "bayangan"
-                            ballAtCollision.SetActive(false);
-                        }
                     }
+                }
+
+                // Jika true, ...
+                if (drawBallAtCollision)
+                {
+                    // Gambar bola "bayangan" di prediksi titik tumbukan
+                    ballAtCollision.transform.position = offsetHitPoint;
+                    ballAtCollision.SetActive(true);
+                }
+                else
+                {
+                    // Sembunyikan bola "bayangan"
+                    ballAtCollision.SetActive(false);
                 }
 
                 // Hanya gambar lintasan untuk satu titik tumbukan, jadi keluar dari loop

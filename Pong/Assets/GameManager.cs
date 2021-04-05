@@ -82,13 +82,14 @@ public class GameManager : MonoBehaviour
         // Toggle nilai debug window ketika pemain mengeklik tombol ini.
         if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height - 73, 120, 53), "TOGGLE\nDEBUG INFO"))
         {
-            trajectory.enabled = !trajectory.enabled;
             isDebugWindowShown = !isDebugWindowShown;
         }
 
         // Jika isDebugWindowShown == true, tampilkan text area untuk debug window.
         if (isDebugWindowShown)
         {
+            trajectory.enabled = !trajectory.enabled;
+
             // Simpan nilai warna lama GUI
             Color oldColor = GUI.backgroundColor;
 
