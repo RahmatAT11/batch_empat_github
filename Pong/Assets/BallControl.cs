@@ -48,11 +48,11 @@ public class BallControl : MonoBehaviour
         {
             // Gunakan gaya untuk menggerakkan bola ini.
             // rigidbody2D.AddForce(new Vector2(-xInitialForce, yRandomInitialForce));
-            rigidbody2D.AddForce(new Vector2(-xInitialForce, yRandomInitialForce));
+            rigidbody2D.AddForce(new Vector2(-xInitialForce, yRandomInitialForce).normalized, ForceMode2D.Impulse);
         }
         else
         {
-            rigidbody2D.AddForce(new Vector2(xInitialForce, yRandomInitialForce));
+            rigidbody2D.AddForce(new Vector2(xInitialForce, yRandomInitialForce).normalized, ForceMode2D.Impulse);
         }
     }
 
