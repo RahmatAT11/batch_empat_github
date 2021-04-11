@@ -1162,7 +1162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015998427, y: -0.000024168568}
+  m_AnchoredPosition: {x: -0.000015998427, y: -0.000008878288}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1398162198
@@ -1391,6 +1391,9 @@ MonoBehaviour:
     UnlockCost: 0
     UpgradeCost: 1
     Output: 2
+  ResourcesSprites:
+  - {fileID: 21300000, guid: e13113ca7aa72a2458737608daa9dc6c, type: 3}
+  - {fileID: 21300000, guid: 2a20523dfe7a96d4b8b62babc895c051, type: 3}
   ResourceParent: {fileID: 1398162197}
   ResourcePrefab: {fileID: 4736701244898991438, guid: 080064fa3450aa241881ef03ec6479ce,
     type: 3}
