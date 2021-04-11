@@ -25,25 +25,39 @@ public class GameManager : MonoBehaviour
 
     public Transform ResourceParent;
     public ResourceController ResourcePrefab;
+    public TapText TapTextPrefab;
 
+    public Transform CoinIcon;
     public Text GoldInfo;
     public Text AutoCollectInfo;
 
     private List<ResourceController> _activeResources = new List<ResourceController>();
     private float _collectSecond;
+    private List<TapText> _tapTextPool = new List<TapText>();
 
     private double _totalGold;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        AddAllResources();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Fungsi untuk selalu mengeksekusi CollectPerSecond setiap detik
+
+        _collectSecond += Time.unscaledDeltaTime;
+
+        if (_collectSecond >= 1f)
+        {
+            CollectPerSecond();
+            _collectSecond = 0f;
+        }
+
+        CoinIcon.transform.localScale = Vector3.LerpUnclamped(CoinIcon.transform.localScale, Vector3.one * 2f, 0.15f);
+        CoinIcon.transform.Rotate(0f, 0f, Time.deltaTime * -100f);
     }
 
     private void AddAllResources()
@@ -78,6 +92,38 @@ public class GameManager : MonoBehaviour
     {
         _totalGold += value;
         GoldInfo.text = $"Gold: {_totalGold.ToString("0")}";
+    }
+
+    public void CollectByTap(Vector3 tapPosition, Transform parent)
+    {
+        double output = 0;
+        foreach (ResourceController resource in _activeResources)
+        {
+            output += resource.GetOutput();
+        }
+
+        TapText tapText = GetOrCreateTapText();
+        tapText.transform.SetParent(parent, false);
+        tapText.transform.position = tapPosition;
+
+        tapText.Text.text = $"+{ output.ToString("0") }";
+        tapText.gameObject.SetActive(true);
+        CoinIcon.transform.localScale = Vector3.one * 1.75f;
+
+        AddGold(output);
+    }
+
+    private TapText GetOrCreateTapText()
+    {
+        TapText tapText = _tapTextPool.Find(t => !t.gameObject.activeSelf);
+
+        if (tapText == null)
+        {
+            tapText = Instantiate(TapTextPrefab).GetComponent<TapText>();
+            _tapTextPool.Add(tapText);
+        }
+
+        return tapText;
     }
 }
 
