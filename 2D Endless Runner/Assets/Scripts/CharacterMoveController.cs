@@ -11,9 +11,27 @@ public class CharacterMoveController : MonoBehaviour
 
     private Rigidbody2D rig;
 
+    [Header("Jump")]
+    public float jumpAccel;
+
+    private bool isJumping;
+    private bool isOnGround;
+
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        // membaca input
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isOnGround)
+            {
+                isJumping = true;
+            }
+        }
     }
 
     private void FixedUpdate()
