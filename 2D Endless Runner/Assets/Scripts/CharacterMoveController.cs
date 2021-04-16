@@ -21,9 +21,12 @@ public class CharacterMoveController : MonoBehaviour
     public float groundRaycastDistance;
     public LayerMask groundLayerMask;
 
+    private Animator anim;
+
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -36,6 +39,9 @@ public class CharacterMoveController : MonoBehaviour
                 isJumping = true;
             }
         }
+
+        // Ubah animasi
+        anim.SetBool("isOnGround", isOnGround);
     }
 
     private void FixedUpdate()
