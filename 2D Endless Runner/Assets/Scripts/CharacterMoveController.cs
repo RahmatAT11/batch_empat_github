@@ -10,6 +10,7 @@ public class CharacterMoveController : MonoBehaviour
     public float maxSpeed;
 
     private Rigidbody2D rig;
+    private CharacterSoundController sound;
 
     [Header("Jump")]
     public float jumpAccel;
@@ -27,6 +28,7 @@ public class CharacterMoveController : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sound = GetComponent<CharacterSoundController>();
     }
 
     private void Update()
@@ -37,6 +39,8 @@ public class CharacterMoveController : MonoBehaviour
             if (isOnGround)
             {
                 isJumping = true;
+
+                sound.PlayJump();
             }
         }
 
