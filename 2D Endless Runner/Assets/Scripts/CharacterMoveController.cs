@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,13 @@ public class CharacterMoveController : MonoBehaviour
     public ScoreController score;
     public float scoringRatio;
     private float lastPositionX;
+
+    [Header("Game Over")]
+    public GameObject gameOverScreen;
+    public float fallPositionY;
+
+    [Header("Camera")]
+    public CameraMoveController gameCamera;
 
     private Animator anim;
 
@@ -61,6 +69,27 @@ public class CharacterMoveController : MonoBehaviour
             score.IncreaseCurrentScore(scoreIncrement);
             lastPositionX += distancePassed;
         }
+
+        // game over
+        if (transform.position.y < fallPositionY)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        // set high score
+        score.FinishScoring();
+
+        // memhentikan gerakan camera
+        gameCamera.enabled = false;
+
+        // tampilkan game over
+        gameOverScreen.SetActive(true);
+
+        // disable karakter
+        enabled = false;
     }
 
     private void FixedUpdate()
