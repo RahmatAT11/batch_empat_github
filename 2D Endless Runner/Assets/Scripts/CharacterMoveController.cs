@@ -22,6 +22,11 @@ public class CharacterMoveController : MonoBehaviour
     public float groundRaycastDistance;
     public LayerMask groundLayerMask;
 
+    [Header("Scoring")]
+    public ScoreController score;
+    public float scoringRatio;
+    private float lastPositionX;
+
     private Animator anim;
 
     private void Start()
@@ -46,6 +51,16 @@ public class CharacterMoveController : MonoBehaviour
 
         // Ubah animasi
         anim.SetBool("isOnGround", isOnGround);
+
+        // Kalkulasi score
+        int distancePassed = Mathf.FloorToInt(transform.position.x - lastPositionX);
+        int scoreIncrement = Mathf.FloorToInt(distancePassed / scoringRatio);
+
+        if (scoreIncrement > 0)
+        {
+            score.IncreaseCurrentScore(scoreIncrement);
+            lastPositionX += distancePassed;
+        }
     }
 
     private void FixedUpdate()
