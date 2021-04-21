@@ -22,9 +22,15 @@ public class TerrainGeneratorController : MonoBehaviour
     private float lastGeneratedPositionX;
     private float lastRemovedPositionX;
 
+    //pool list
+    private Dictionary<string, List<GameObject>> pool;
+
     private void Start()
     {
+        pool = new Dictionary<string, List<GameObject>>();
+
         spawnedTerrain = new List<GameObject>();
+
         lastGeneratedPositionX = GetHorizontalPositionStart();
         lastRemovedPositionX = lastGeneratedPositionX - terrainTemplateWidth;
 
@@ -54,6 +60,43 @@ public class TerrainGeneratorController : MonoBehaviour
             lastRemovedPositionX += terrainTemplateWidth;
             RemoveTerrain(lastRemovedPositionX);
         }
+    }
+
+    //fungsi untuk melakukan object pooling
+    private GameObject GenerateFromPool(GameObject item, Transform parent)
+    {
+        if (pool.ContainsKey(item.name))
+        {
+            // jika item tersedia di pool
+            if (pool[item.name].Count > 0)
+            {
+                GameObject newItemFromPool = pool[item.name][0];
+                pool[item.name].Remove(newItemFromPool);
+                newItemFromPool.SetActive(true);
+                return newItemFromPool;
+            }
+        }
+        else
+        {
+            // jika item list tidak terdefinisi, maka buat list baru
+            pool.Add(item.name, new List<GameObject>());
+        }
+
+        // buat item baru jika tidak ada item yang tersedia di pool
+        GameObject newItem = Instantiate(item, parent);
+        newItem.name = item.name;
+        return newItem;
+    }
+
+    private void ReturnToPool(GameObject item)
+    {
+        if (!pool.ContainsKey(item.name))
+        {
+            Debug.LogError("INVALID POOL ITEM!");
+        }
+
+        pool[item.name].Add(item);
+        item.SetActive(false);
     }
     
     private void RemoveTerrain(float posX)
