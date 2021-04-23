@@ -714,6 +714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 410678910}
   - component: {fileID: 410678909}
+  - component: {fileID: 410678911}
   m_Layer: 0
   m_Name: Level 1
   m_TagString: Untagged
@@ -784,6 +785,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410678911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410678908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7c396048df05f4898a0bd0c7840616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _towerUIParent: {fileID: 153339466}
+  _towerUIPrefab: {fileID: 6051137414384770400, guid: 0a71348683d24ba4f95fb9edbdec4f4e,
+    type: 3}
+  _towerPrefabs:
+  - {fileID: 3140363160342072371, guid: 0715ba533bc849c48b8ff8fbb3fd758d, type: 3}
+  - {fileID: 786274614081288406, guid: 65a3d60a37289ed42aa49813fa8cc08c, type: 3}
+  - {fileID: 4424967493064805333, guid: 72aa0895ac0466e4a8643b7d42f4e022, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
