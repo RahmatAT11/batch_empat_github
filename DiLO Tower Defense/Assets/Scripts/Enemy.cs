@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -64,6 +62,15 @@ public class Enemy : MonoBehaviour
         }
 
         _healthBar.transform.parent = transform;
+    }
+
+    public void ReduceEnemyHealth(int damage)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     // Menandai indeks terakhir pada path

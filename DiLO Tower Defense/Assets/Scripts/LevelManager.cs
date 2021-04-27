@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
 
     private List<Tower> _spawnedTowers = new List<Tower>();
     private List<Enemy> _spawnedEnemies = new List<Enemy>();
+    private List<Bullet> _spawnedBullets = new List<Bullet>();
 
     private float _runningSpawnDelay;
 
@@ -47,6 +48,13 @@ public class LevelManager : MonoBehaviour
         {
             SpawnEnemy();
             _runningSpawnDelay = _spawnDelay;
+        }
+
+        foreach (Tower tower in _spawnedTowers)
+        {
+            tower.CheckNearestEnemy(_spawnedEnemies);
+            tower.SeekTarget();
+            tower.ShootTarget();
         }
 
         foreach (Enemy enemy in _spawnedEnemies)
@@ -122,6 +130,39 @@ public class LevelManager : MonoBehaviour
         newEnemy.SetTargetPosition(_enemyPaths[1].position);
         newEnemy.SetCurrentIndexPath(1);
         newEnemy.gameObject.SetActive(true);
+    }
+
+    public Bullet GetBulletFromPool(Bullet prefab)
+    {
+        GameObject newBulletObj = _spawnedBullets.Find(
+            b => !b.gameObject.activeSelf && b.name.Contains(prefab.name))?.gameObject;
+
+        if (newBulletObj == null)
+        {
+            newBulletObj = Instantiate(prefab.gameObject);
+        }
+
+        Bullet newBullet = newBulletObj.GetComponent<Bullet>();
+        if (!_spawnedBullets.Contains(newBullet))
+        {
+            _spawnedBullets.Add(newBullet);
+        }
+
+        return newBullet;
+    }
+
+    public void ExplodeAt(Vector2 point, float radius, int damage)
+    {
+        foreach (Enemy enemy in _spawnedEnemies)
+        {
+            if (enemy.gameObject.activeSelf)
+            {
+                if (Vector2.Distance(enemy.transform.position, point) <= radius)
+                {
+                    enemy.ReduceEnemyHealth(damage);
+                }
+            }
+        }
     }
 
     // Untuk menampilkan garis penghubung dalam window Scene
