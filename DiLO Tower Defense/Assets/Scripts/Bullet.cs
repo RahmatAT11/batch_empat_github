@@ -12,6 +12,11 @@ public class Bullet : MonoBehaviour
     // cocok digunakan jika karakter memiliki Physic (Rigidbody, dll)
     private void FixedUpdate()
     {
+        if (LevelManager.Instance.IsOver)
+        {
+            return;
+        }
+
         if (_targetEnemy != null)
         {
             if (!_targetEnemy.gameObject.activeSelf)

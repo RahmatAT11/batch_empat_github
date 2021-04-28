@@ -38,6 +38,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: _healthBar
+      value: 
+      objectReference: {fileID: 5362061687609227829}
+    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: _healthFill
+      value: 
+      objectReference: {fileID: 8490504800296326564}
+    - target: {fileID: 7318032040558293379, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499631930305404434, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3651219959626917069, guid: e51593c81525ad341af68384ddc2b68b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,16 +118,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
-        type: 3}
-      propertyPath: _maxHealth
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51593c81525ad341af68384ddc2b68b, type: 3}
 --- !u!1 &621000340482881983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2844372159670415881, guid: e51593c81525ad341af68384ddc2b68b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3451729753630477238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5362061687609227829 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7318032040558293379, guid: e51593c81525ad341af68384ddc2b68b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3451729753630477238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8490504800296326564 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6499631930305404434, guid: e51593c81525ad341af68384ddc2b68b,
     type: 3}
   m_PrefabInstance: {fileID: 3451729753630477238}
   m_PrefabAsset: {fileID: 0}

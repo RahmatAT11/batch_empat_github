@@ -28,6 +28,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: _moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: _healthBar
+      value: 
+      objectReference: {fileID: 397490967274124622}
+    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: _healthFill
+      value: 
+      objectReference: {fileID: 4195560992258153183}
+    - target: {fileID: 7318032040558293379, guid: e51593c81525ad341af68384ddc2b68b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3651219959626917069, guid: e51593c81525ad341af68384ddc2b68b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,21 +108,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
-        type: 3}
-      propertyPath: _maxHealth
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4207148947676923552, guid: e51593c81525ad341af68384ddc2b68b,
-        type: 3}
-      propertyPath: _moveSpeed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51593c81525ad341af68384ddc2b68b, type: 3}
 --- !u!1 &5148680742313785028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2844372159670415881, guid: e51593c81525ad341af68384ddc2b68b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6920612829354230989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &397490967274124622 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7318032040558293379, guid: e51593c81525ad341af68384ddc2b68b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6920612829354230989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4195560992258153183 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6499631930305404434, guid: e51593c81525ad341af68384ddc2b68b,
     type: 3}
   m_PrefabInstance: {fileID: 6920612829354230989}
   m_PrefabAsset: {fileID: 0}
